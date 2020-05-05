@@ -84,7 +84,12 @@ $(document).ready(function(){
 
 			var symbol = getCookie('symbol');
 			var grid_id = $(this).attr('id');
-			draw(symbol,grid_id);
+			if ($("#"+grid_id).text().length == 0) {
+				draw(symbol,grid_id);
+			}
+			else {
+				swal('Already filled!','Please select another box, this is already filled!', 'warning');
+			}
 			check_status();
 		});
 	});
