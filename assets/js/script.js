@@ -48,31 +48,39 @@ $(document).ready(function(){
 			if (grid1 == grid2 && grid2 == grid3 && grid1 != '' && grid2 != '' && grid3 != '') {
 				won(grid1);
 			}
-			if (grid4 == grid5 && grid5 == grid6 && grid4 != '' && grid5 != '' && grid6 != '') {
+			else if (grid4 == grid5 && grid5 == grid6 && grid4 != '' && grid5 != '' && grid6 != '') {
 				won(grid4);
 			}
-			if (grid7 == grid8 && grid8 == grid9 && grid7 != '' && grid8 != '' && grid9 != '') {
+			else if (grid7 == grid8 && grid8 == grid9 && grid7 != '' && grid8 != '' && grid9 != '') {
 				won(grid7);
 			}
 
 			//vertical
-			if (grid1 == grid4 && grid4 == grid7 && grid1 != '' && grid4 != '' && grid7 != '') {
+			else if (grid1 == grid4 && grid4 == grid7 && grid1 != '' && grid4 != '' && grid7 != '') {
 				won(grid1);
 			}
-			if (grid2 == grid5 && grid5 == grid8 && grid2 != '' && grid5 != '' && grid8 != '') {
+			else if (grid2 == grid5 && grid5 == grid8 && grid2 != '' && grid5 != '' && grid8 != '') {
 				won(grid2);
 			}
-			if (grid3 == grid6 && grid6 == grid9 && grid3 != '' && grid6 != '' && grid9 != '') {
+			else if (grid3 == grid6 && grid6 == grid9 && grid3 != '' && grid6 != '' && grid9 != '') {
 				won(grid3);
 			}
 
 			//diagonal
-			if (grid1 == grid5 && grid5 == grid9 && grid1 != '' && grid5 != '' && grid9 != '') {
+			else if (grid1 == grid5 && grid5 == grid9 && grid1 != '' && grid5 != '' && grid9 != '') {
 				won(grid1);
 			}
-			if (grid3 == grid5 && grid5 == grid7 && grid3 != '' && grid5 != '' && grid7 != '') {
+			else if (grid3 == grid5 && grid5 == grid7 && grid3 != '' && grid5 != '' && grid7 != '') {
 				won(grid3);
 			}
+			else if (grid1 != '' && grid2 != '' && grid3 != '' && grid4 != '' && grid5 != '' && grid6 != '' && grid7 != '' && grid8 != '' && grid9 != '') {
+				game_draw();
+			}
+		}
+		function game_draw() {
+			swal('Game is Draw!', 'This game got draw, play again!', 'info').then((value)=>{
+				window.location = '';
+			});
 		}
 		function won(symbol) {
 			swal(symbol+' Won','Well played!', 'success').then((value)=>{
@@ -86,9 +94,6 @@ $(document).ready(function(){
 			var grid_id = $(this).attr('id');
 			if ($("#"+grid_id).text().length == 0) {
 				draw(symbol,grid_id);
-			}
-			else {
-				swal('Already filled!','Please select another box, this is already filled!', 'warning');
 			}
 			check_status();
 		});
