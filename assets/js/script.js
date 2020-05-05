@@ -46,37 +46,38 @@ $(document).ready(function(){
 
 			//horizontal
 			if (grid1 == grid2 && grid2 == grid3 && grid1 != '' && grid2 != '' && grid3 != '') {
-				won();
+				won(grid1);
 			}
 			if (grid4 == grid5 && grid5 == grid6 && grid4 != '' && grid5 != '' && grid6 != '') {
-				won();
+				won(grid4);
 			}
 			if (grid7 == grid8 && grid8 == grid9 && grid7 != '' && grid8 != '' && grid9 != '') {
-				won();
+				won(grid7);
 			}
 
 			//vertical
 			if (grid1 == grid4 && grid4 == grid7 && grid1 != '' && grid4 != '' && grid7 != '') {
-				won();
+				won(grid1);
 			}
 			if (grid2 == grid5 && grid5 == grid8 && grid2 != '' && grid5 != '' && grid8 != '') {
-				won();
+				won(grid2);
 			}
 			if (grid3 == grid6 && grid6 == grid9 && grid3 != '' && grid6 != '' && grid9 != '') {
-				won();
+				won(grid3);
 			}
 
 			//diagonal
 			if (grid1 == grid5 && grid5 == grid9 && grid1 != '' && grid5 != '' && grid9 != '') {
-				won();
+				won(grid1);
 			}
 			if (grid3 == grid5 && grid5 == grid7 && grid3 != '' && grid5 != '' && grid7 != '') {
-				won();
+				won(grid3);
 			}
 		}
-		function won() {
-			alert('Won');
-			window.location = '';
+		function won(symbol) {
+			swal(symbol+' Won','Well played!', 'success').then((value)=>{
+				window.location = '';
+			});
 		}
 		setCookie('symbol', 'X', 1);
 		$(".grid-item").on("click", function(){
